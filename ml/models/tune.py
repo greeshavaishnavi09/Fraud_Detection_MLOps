@@ -33,7 +33,8 @@ FEATURES = ["step", "amount", "oldbalanceOrg", "type"]
 MODELS = {
     "Logistic Regression": MODEL_DIR / "baseline_logistic_regression.joblib",
     "Random Forest": MODEL_DIR / "random_forest.joblib",
-    "XGBoost": MODEL_DIR / "xgboost.joblib",
+    "XGBoost (original)": MODEL_DIR / "xgboost.joblib",
+    "XGBoost (configured)": MODEL_DIR / "xgboost_configured.joblib",
 }
 
 THRESHOLDS = np.arange(0.01, 1.00, 0.01)
