@@ -1,0 +1,17 @@
+
+target_column: isFraud
+
+exclude_columns:
+  - nameOrig
+  - nameDest
+  - isFlaggedFraud
+
+numerical_features:
+  - step
+  - amount
+  - oldbalanceOrg
+
+categorical_features:
+  - type
+
+random_state: 42

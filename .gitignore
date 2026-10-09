@@ -218,3 +218,38 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Environments and Virtual Envs
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.conda/
+fraud/
+
+# MLOps Pipeline Outputs (Your specific project overrides)
+artifacts/
+logs/
+*.log
+PS_20174392719_1491204439457_log.zip
+
+
+# Large datasets: keep locally, not in Git
+data/raw/
+data/processed/
+
+# Generated model files
+models/candidates/
+*.joblib
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
