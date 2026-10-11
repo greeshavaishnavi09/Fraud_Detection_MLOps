@@ -46,9 +46,10 @@ models:
     tree_method: hist
     n_jobs: -1
 
+
 selection:
   candidate_model: xgboost
-  model_artifact: models/candidates/xgboost.joblib
+  model_artifact: models/production/fraud_xgboost.joblib
   threshold: 0.97
   threshold_selection_metric: f1_score
 
