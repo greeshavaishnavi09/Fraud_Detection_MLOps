@@ -1,0 +1,132 @@
+
+.prediction-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  color: #172033;
+}
+
+.prediction-header {
+  margin-bottom: 28px;
+}
+
+.prediction-eyebrow {
+  color: #3977d5;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.prediction-header h1 {
+  margin: 8px 0;
+  font-size: clamp(26px, 4vw, 36px);
+}
+
+.prediction-header > p:last-child {
+  color: #687386;
+  line-height: 1.6;
+}
+
+.prediction-card {
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #e1e7ef;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(20, 35, 60, 0.06);
+}
+
+.prediction-card h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.prediction-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin: 24px 0;
+}
+
+.prediction-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.prediction-grid input,
+.prediction-grid select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #172033;
+  font: inherit;
+}
+
+.prediction-grid input:focus,
+.prediction-grid select:focus {
+  outline: 2px solid #3977d5;
+  outline-offset: 1px;
+}
+
+.prediction-button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #2868cf;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.prediction-button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.prediction-error,
+.prediction-result {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.prediction-error {
+  background: #fff0f0;
+  color: #a32121;
+}
+
+.prediction-result {
+  background: #f0f6ff;
+  border: 1px solid #d6e5ff;
+  overflow-wrap: anywhere;
+}
+
+.prediction-result p {
+  line-height: 1.6;
+}
+
+.prediction-disclaimer {
+  color: #687386;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .prediction-page {
+    padding: 24px 16px;
+  }
+
+  .prediction-card {
+    padding: 20px;
+  }
+
+  .prediction-grid {
+    grid-template-columns: 1fr;
+  }
+}
