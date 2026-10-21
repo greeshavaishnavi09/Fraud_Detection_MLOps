@@ -1,29 +1,50 @@
 
-/* ===== Application shell ===== */
+/* ==================================================
+   SENTINEL AI — FRAUD DETECTION MLOPS
+   Main application stylesheet
+   ================================================== */
 
 :root {
   font-family: Inter, "Segoe UI", Arial, sans-serif;
   color: #172033;
-  background: #f5f7fb;
+  background: #f4f7fc;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  min-width: 320px;
+  min-height: 100%;
+}
+
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: #f5f7fb;
+  background: #f4f7fc;
 }
 
 button,
 input,
-select {
+select,
+textarea {
   font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Application layout */
+
+#root {
+  min-height: 100vh;
 }
 
 .app-layout {
@@ -53,12 +74,13 @@ select {
 
 .brand-mark {
   display: grid;
+  flex-shrink: 0;
   width: 42px;
   height: 42px;
   place-items: center;
   border-radius: 12px;
   background: #3977ed;
-  color: #ffffff;
+  color: white;
   font-size: 23px;
   font-weight: 800;
 }
@@ -105,23 +127,23 @@ select {
   background: transparent;
   color: #bac5d8;
   text-align: left;
-  cursor: pointer;
   transition: background 160ms ease, color 160ms ease;
 }
 
 .sidebar-link:hover {
   background: #1b2a43;
-  color: #ffffff;
+  color: white;
 }
 
 .sidebar-link.active {
   background: #25477c;
-  color: #ffffff;
+  color: white;
   box-shadow: inset 3px 0 #6ea5ff;
 }
 
 .sidebar-icon {
   display: inline-grid;
+  flex-shrink: 0;
   width: 22px;
   place-items: center;
   font-size: 19px;
@@ -155,6 +177,8 @@ select {
   background: #22c581;
 }
 
+/* Header and page container */
+
 .app-main {
   flex: 1;
   min-width: 0;
@@ -167,7 +191,7 @@ select {
   gap: 20px;
   padding: 24px 34px;
   border-bottom: 1px solid #e7ebf2;
-  background: #ffffff;
+  background: white;
 }
 
 .breadcrumb {
@@ -190,8 +214,8 @@ select {
   padding: 9px 12px;
   border: 1px solid #e4e9f0;
   border-radius: 9px;
+  background: white;
   color: #526074;
-  background: #ffffff;
   font-size: 12px;
 }
 
@@ -199,31 +223,176 @@ select {
   width: 100%;
   max-width: 1500px;
   margin: 0 auto;
+  padding: 30px;
 }
 
-/* Existing pages should use the application content width. */
-.dashboard-page,
-.prediction-page {
+/* General page typography */
+
+.app-content h1,
+.app-content h2,
+.app-content h3 {
+  color: #172033;
+  line-height: 1.3;
+}
+
+.app-content h1 {
+  font-size: 30px;
+  letter-spacing: -0.8px;
+}
+
+.app-content h2 {
+  font-size: 21px;
+}
+
+.app-content h3 {
+  font-size: 16px;
+}
+
+.app-content p {
+  line-height: 1.7;
+}
+
+.app-content > div,
+.app-content section {
+  min-width: 0;
+}
+
+/* Dashboard cards and metric panels */
+
+.app-content .metric-grid,
+.app-content .metrics-grid,
+.app-content .stats-grid,
+.app-content .kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.app-content .metric-card,
+.app-content .stat-card,
+.app-content .kpi-card,
+.app-content .chart-card,
+.app-content .panel,
+.app-content .result-card {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid #e5eaf2;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 4px 16px rgb(24 39 75 / 4%);
+}
+
+.app-content .metric-card p,
+.app-content .stat-card p,
+.app-content .kpi-card p {
+  margin: 0 0 10px;
+  color: #68758a;
+  font-size: 13px;
+}
+
+.app-content .metric-card strong,
+.app-content .stat-card strong,
+.app-content .kpi-card strong {
+  color: #172033;
+  font-size: 25px;
+  font-weight: 750;
+}
+
+.app-content .dashboard-page,
+.app-content .prediction-page {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-@media (max-width: 850px) {
-  .app-sidebar {
-    flex-basis: 205px;
-    width: 205px;
-    padding-right: 10px;
-    padding-left: 10px;
+/* Prediction form */
+
+.app-content form {
+  display: grid;
+  gap: 18px;
+}
+
+.app-content label {
+  display: block;
+  margin-bottom: 8px;
+  color: #344054;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.app-content input,
+.app-content select,
+.app-content textarea {
+  width: 100%;
+  min-height: 43px;
+  padding: 10px 12px;
+  border: 1px solid #d6deea;
+  border-radius: 8px;
+  background: white;
+  color: #172033;
+  outline: none;
+}
+
+.app-content input:focus,
+.app-content select:focus,
+.app-content textarea:focus {
+  border-color: #3977ed;
+  box-shadow: 0 0 0 3px rgb(57 119 237 / 12%);
+}
+
+.app-content form button,
+.app-content button[type="submit"] {
+  min-height: 44px;
+  padding: 11px 18px;
+  border: 0;
+  border-radius: 8px;
+  background: #2864d7;
+  color: white;
+  font-weight: 700;
+}
+
+.app-content form button:hover,
+.app-content button[type="submit"]:hover {
+  background: #1f50b2;
+}
+
+/* Tables */
+
+.app-content table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.app-content th,
+.app-content td {
+  padding: 13px;
+  border-bottom: 1px solid #e9edf4;
+  text-align: left;
+}
+
+.app-content th {
+  background: #f8faff;
+  color: #475467;
+  font-size: 12px;
+}
+
+/* Responsive design */
+
+@media (max-width: 1000px) {
+  .app-content .metric-grid,
+  .app-content .metrics-grid,
+  .app-content .stats-grid,
+  .app-content .kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .app-topbar {
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 22px;
+  .app-content {
+    padding: 24px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .app-layout {
     display: block;
   }
@@ -263,6 +432,23 @@ select {
   }
 
   .app-topbar {
-    padding: 18px 16px;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .app-content {
+    padding: 18px 14px;
+  }
+
+  .app-content h1 {
+    font-size: 25px;
+  }
+
+  .app-content .metric-grid,
+  .app-content .metrics-grid,
+  .app-content .stats-grid,
+  .app-content .kpi-grid {
+    grid-template-columns: 1fr;
   }
 }

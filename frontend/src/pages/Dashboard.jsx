@@ -1,15 +1,13 @@
 
-import "../index.css";
-
-const modelMetrics = [
-  { label: "Precision", value: "80.45%" },
-  { label: "Recall", value: "70.13%" },
-  { label: "F1 Score", value: "74.94%" },
-  { label: "PR-AUC", value: "82.00%" },
+const metrics = [
+  { label: "Precision", value: "80.45%", detail: "Fraud alerts that were correct" },
+  { label: "Recall", value: "70.13%", detail: "Fraud cases detected" },
+  { label: "F1 Score", value: "74.94%", detail: "Precision and recall balance" },
+  { label: "PR-AUC", value: "82.00%", detail: "Precision-recall performance" },
 ];
 
-const confusionMetrics = [
-  { label: "Correctly identified legitimate", value: "952,951" },
+const summary = [
+  { label: "Legitimate transactions correctly identified", value: "952,951" },
   { label: "Legitimate transactions flagged", value: "210" },
   { label: "Fraud transactions missed", value: "368" },
   { label: "Fraud transactions detected", value: "864" },
@@ -17,59 +15,56 @@ const confusionMetrics = [
 
 export default function Dashboard() {
   return (
-    <main className="dashboard-page">
-      <header className="dashboard-header">
-        <div>
-          <p className="dashboard-eyebrow">FRAUD DETECTION MLOPS</p>
-          <h1>Dashboard</h1>
-          <p>
-            Overview of the fraud detection model and its held-out
-            test performance.
-          </p>
-        </div>
-        <span className="dashboard-status">
-          Model evaluation complete
-        </span>
-      </header>
-
-      <section className="dashboard-section">
-        <h2>Model Performance</h2>
-        <p className="dashboard-description">
-          XGBoost results on the held-out test dataset at threshold 0.97.
+    <div className="dashboard-page">
+      <section className="dashboard-intro">
+        <p className="eyebrow">FRAUD DETECTION MLOPS</p>
+        <h2>Model performance overview</h2>
+        <p>
+          Monitor the evaluated performance of your XGBoost fraud
+          detection model.
         </p>
-
-        <div className="dashboard-metrics">
-          {modelMetrics.map((metric) => (
-            <article className="dashboard-metric" key={metric.label}>
-              <p>{metric.label}</p>
-              <h3>{metric.value}</h3>
-            </article>
-          ))}
-        </div>
+        <span className="evaluation-status">
+          <span className="status-dot" />
+          Offline test evaluation complete
+        </span>
       </section>
 
-      <section className="dashboard-section">
-        <h2>Test Evaluation Summary</h2>
+      <section className="dashboard-metrics">
+        {metrics.map((metric) => (
+          <article className="dashboard-metric-card" key={metric.label}>
+            <p>{metric.label}</p>
+            <h3>{metric.value}</h3>
+            <span>{metric.detail}</span>
+          </article>
+        ))}
+      </section>
 
-        <div className="dashboard-list">
-          {confusionMetrics.map((metric) => (
-            <div className="dashboard-list-row" key={metric.label}>
-              <span>{metric.label}</span>
-              <strong>{metric.value}</strong>
+      <section className="dashboard-summary-card">
+        <div className="section-heading">
+          <div>
+            <h3>Test evaluation summary</h3>
+            <p>Held-out test set · Decision threshold 0.97</p>
+          </div>
+          <span className="model-tag">XGBoost</span>
+        </div>
+
+        <div className="summary-grid">
+          {summary.map((item, index) => (
+            <div className="summary-item" key={item.label}>
+              <span className="summary-number">
+                {item.value}
+              </span>
+              <span className="summary-label">{item.label}</span>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="dashboard-note">
-        <h2>About these metrics</h2>
-        <p>
-          These values come from the saved offline test evaluation.
-          They are not live production transaction counts. The
-          dashboard can be connected to backend analytics endpoints
-          as those features are implemented.
-        </p>
-      </section>
-    </main>
+      <p className="dashboard-disclaimer">
+        These figures are from the saved offline test evaluation, not
+        live production transaction counts. Live monitoring will be
+        connected separately.
+      </p>
+    </div>
   );
 }
